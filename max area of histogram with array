@@ -14,9 +14,9 @@ vector<int> left_nearest_small_index(int a[],int n)
 	    {
 	        v.push_back(s.top().first);
 	    }
-	    else if(s.size()>0&&s.top().second>a[i])
+	    else if(s.size()>0&&s.top().second>=a[i])
 	    {
-	        while(s.size()>0&&s.top().second>a[i])
+	        while(s.size()>0&&s.top().second>=a[i])
 	        {
 	            s.pop();
 	        }
@@ -35,27 +35,28 @@ vector<int> left_nearest_small_index(int a[],int n)
 }
 vector<int> right_nearest_small_index(int a[],int n)
 {
-    vector<int>v;
+    	int right_most_index=n;
+	vector<int>v;
 	stack<pair<int,int>>s;
 	for(int i=n-1;i>=0;i--)
 	{
 	    if(s.size()==0)
 	    {
-	        v.push_back(7);
+	        v.push_back(right_most_index);
 	    }
 	    else if(s.size()>0&&s.top().second<a[i])
 	    {
 	        v.push_back(s.top().first);
 	    }
-	    else if(s.size()>0&&s.top().second>a[i])
+	    else if(s.size()>0&&s.top().second>=a[i])
 	    {
-	        while(s.size()>0&&s.top().second>a[i])
+	        while(s.size()>0&&s.top().second>=a[i])
 	        {
 	            s.pop();
 	        }
 	        if(s.size()==0)
 	        {
-	            v.push_back(7);   
+	            v.push_back(right_most_index);   
 	        }
 	        else if(s.top().second<a[i])
 	        {
