@@ -14,9 +14,9 @@ vector<int> consec_small_nums(int a[],int n)
 	    {
 	        v.push_back(s.top().first);
 	    }
-	    else if(s.size()>0&&s.top().second<a[i])
+	    else if(s.size()>0&&s.top().second<=a[i])
 	    {
-	        while(s.size()>0&&s.top().second<a[i])
+	        while(s.size()>0&&s.top().second<=a[i])
 	        {
 	            s.pop();
 	        }
